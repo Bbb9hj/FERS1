@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>محتوى هادف - الفهرس الشامل للخدمات الرقمية والاشتراكات</title>
+    
+    <!-- خطوط Google لمظهر احترافي فخم -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- إطار تيلويند CSS للإخراج البصري السريع -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- حزمة أيقونات Lucide المتناسقة فائقة الحيوية -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              accentEmerald: '#10b981',
+              darkBg: '#F8FAFC',
+            },
+            fontFamily: {
+              sans: ['Cairo', 'system-ui', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      /* تفاعلات ومميزات بصرية خاصة بالهواتف المحمولة */
+      body {
+        -webkit-tap-highlight-color: transparent;
+        font-family: 'Cairo', sans-serif;
+      }
+      
+      /* إخفاء أشرطة التمرير لضمان مظهر انسيابي في تصنيفات الفئات */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      /* حركات انتقالية سلسة محاكية لمحفظة جيب */
+      @keyframes slideUp {
+        from {
+          transform: translateY(100%);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .animate-slide-up {
+        animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 0.25s ease-out forwards;
+      }
+    </style>
+  </head>
+  <body class="bg-[#F8FAFC] text-slate-900 min-h-screen">
+
+    <div class="max-w-md mx-auto min-h-screen flex flex-col relative pb-32">
+      
+      <!-- ترويسة رئيسية جذابة بتدرج لوني يعكس القوة والتناسق -->
+      <header class="bg-gradient-to-br from-blue-600 to-indigo-800 pt-10 pb-20 px-6 rounded-b-[40px] shadow-lg relative overflow-hidden shrink-0">
+        <!-- عناصر انسيابية تفاعلية في الخلفية -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+          <div class="absolute -top-10 -right-10 w-40 h-40 bg-white rounded-full blur-3xl"></div>
+          <div class="absolute bottom-0 left-0 w-60 h-60 bg-blue-400 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="relative z-10">
+          <div class="flex justify-between items-center mb-8">
+            <div class="flex items-center gap-4">
+              <!-- شعار التطبيق الفاخر -->
+              <div class="w-14 h-14 bg-white/10 backdrop-blur-xl rounded-[22px] flex items-center justify-center border border-white/20 shadow-xl relative overflow-hidden">
+                <i data-lucide="send" class="w-7 h-7 text-white drop-shadow-md"></i>
+              </div>
+              
+              <div class="flex flex-col">
+                <h1 class="text-2xl font-black text-white tracking-tight leading-none mb-1">
+                  محتوى هادف
+                </h1>
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]"></span>
+                  <p class="text-sm text-blue-100/90 font-medium tracking-wide">
+                    الفهرس الشامل للخدمات والاشتراكات
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- زر الانتقال للقناة الرئيسية -->
+            <button onclick="window.open('https://t.me/H_E_D_F', '_blank')" class="w-11 h-11 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center transition-all text-white border border-white/10 active:scale-95">
+              <i data-lucide="external-link" class="w-5 h-5"></i>
+            </button>
+          </div>
+
+          <!-- شريط بحث ديناميكي يعتمد التصفية اللحظية أثناء الكتابة -->
+          <div class="relative">
+            <i data-lucide="search" class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400"></i>
+            <input 
+              id="search-input"
+              type="text" 
+              placeholder="ابحث عن تفعيل، اشتراك، شحن نجوم..." 
+              class="w-full bg-white/95 border-none rounded-2xl py-4 pr-12 pl-4 shadow-xl focus:ring-2 focus:ring-blue-400 transition-all text-slate-800 placeholder:text-slate-400 font-medium text-sm"
+              oninput="handleSearch(this.value)"
+            />
+          </div>
+        </div>
+      </header>
+
+      <!-- قائمة الفئات الأفقية عائمة بتصميم عصري مسطح -->
+      <nav class="px-6 -mt-8 relative z-20 shrink-0">
+        <div class="bg-white rounded-3xl p-2 shadow-xl flex gap-2 overflow-x-auto no-scrollbar">
+          <button id="cat-all" onclick="filterCategory('all')" class="flex-1 min-w-[85px] py-3 px-2 rounded-2xl flex flex-col items-center gap-1.5 transition-all bg-blue-600 text-white shadow-lg shadow-blue-200">
+            <i data-lucide="grid" class="w-5 h-5"></i>
+            <span class="text-xs font-bold whitespace-nowrap">الكل</span>
+          </button>
+          <button id="cat-telegram" onclick="filterCategory('telegram')" class="flex-1 min-w-[85px] py-3 px-2 rounded-2xl flex flex-col items-center gap-1.5 transition-all bg-transparent text-slate-500 hover:bg-slate-50">
+            <i data-lucide="send" class="w-5 h-5"></i>
+            <span class="text-xs font-bold whitespace-nowrap">تيليجرام</span>
+          </button>
+          <button id="cat-ai" onclick="filterCategory('ai')" class="flex-1 min-w-[85px] py-3 px-2 rounded-2xl flex flex-col items-center gap-1.5 transition-all bg-transparent text-slate-500 hover:bg-slate-50">
+            <i data-lucide="bot" class="w-5 h-5"></i>
+            <span class="text-xs font-bold whitespace-nowrap">ذكاء اصطناعي</span>
+          </button>
+          <button id="cat-financial" onclick="filterCategory('financial')" class="flex-1 min-w-[85px] py-3 px-2 rounded-2xl flex flex-col items-center gap-1.5 transition-all bg-transparent text-slate-500 hover:bg-slate-50">
+            <i data-lucide="wallet" class="w-5 h-5"></i>
+            <span class="text-xs font-bold whitespace-nowrap">مالية وعامة</span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- قائمة الخدمات الرئيسية -->
+      <main class="flex-1 px-6 pt-8">
+        <div class="mb-5 flex justify-between items-end">
+          <div>
+            <h2 id="section-title" class="text-lg font-bold text-slate-800">الخدمات المتوفرة</h2>
+            <p class="text-xs text-slate-500 mt-0.5">اضنع تجربتك الرقمية الاحترافية بأفضل سعر</p>
+          </div>
+          <span id="service-count" class="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+            13 خدمة
+          </span>
+        </div>
+
+        <!-- حاوية بطاقات المعروضات الديناميكية -->
+        <div id="services-container" class="space-y-4">
+          <!-- يتم ملؤها برمجياً لسرعة الأداء وعدم استهلاك الموارد -->
+        </div>
+
+        <!-- تلميح مفقودات البحث -->
+        <div id="no-results" class="hidden text-center py-20 animate-fade-in">
+          <div class="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-300">
+            <i data-lucide="search" class="w-10 h-10"></i>
+          </div>
+          <p class="text-slate-500 font-bold">لم أعثر على أي خدمة مطابقة</p>
+          <p class="text-xs text-slate-400 mt-1">تأكد من كتابة أحرف الكلمات بشكل صحيح</p>
+        </div>
+      </main>
+
+      <!-- شريط تبويب سفلي جذاب ومرن للهواتف النقالة -->
+      <footer class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-lg border-t border-slate-100 z-50">
+        <div class="max-w-md mx-auto flex justify-around p-3 pb-6">
+          <button onclick="filterCategory('all')" class="flex flex-col items-center gap-1 text-blue-600 transition-transform active:scale-95">
+            <div class="p-1">
+              <i data-lucide="grid" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[10px] font-bold">الرئيسية</span>
+          </button>
+          <button onclick="window.open('https://t.me/trusthedf', '_blank')" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-transform active:scale-95">
+            <div class="p-1">
+              <i data-lucide="shield-check" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[10px] font-bold">الضمان والتعاملات</span>
+          </button>
+          
+          <!-- زر للتواصل المباشر معلق وجذاب في المنتصف -->
+          <button onclick="window.open('https://t.me/B_B_A_W', '_blank')" class="flex flex-col items-center gap-1 -mt-8 translate-y-[-10px]">
+            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-xl shadow-blue-300 ring-8 ring-white transform transition-transform hover:scale-110 active:scale-95">
+              <i data-lucide="message-square" class="w-7 h-7"></i>
+            </div>
+            <span class="text-[10px] font-bold text-slate-800 mt-1">تواصل مباشر</span>
+          </button>
+          
+          <button onclick="window.open('https://t.me/H_E_D_F/623', '_blank')" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-transform active:scale-95">
+            <div class="p-1">
+              <i data-lucide="sparkles" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[10px] font-bold">خدمات مجانية</span>
+          </button>
+          <button onclick="window.open('https://t.me/H_A_DFBOT', '_blank')" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-transform active:scale-95">
+            <div class="p-1">
+              <i data-lucide="bot" class="w-6 h-6"></i>
+            </div>
+            <span class="text-[10px] font-bold">الدعم الآلي</span>
+          </button>
+        </div>
+      </footer>
+
+      <!-- ورقة السحب والتفاصيل السفلية (Bottom Sheet Drawer) -->
+      <div id="drawer-overlay" onclick="closeDrawer()" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] animate-fade-in transition-all"></div>
+      
+      <div id="drawer" class="hidden fixed bottom-0 left-0 right-0 bg-white rounded-t-[40px] z-[101] shadow-2xl max-w-md mx-auto max-h-[85vh] flex flex-col transform translate-y-full transition-transform duration-300 ease-out">
+        <!-- مقبض السحب بالأعلى للتلميح والإغلاق السريع باللمس -->
+        <div onclick="closeDrawer()" class="w-full h-10 flex justify-center items-center cursor-pointer shrink-0">
+          <div class="w-12 h-1.5 bg-slate-200 rounded-full hover:bg-slate-300 transition-all"></div>
+        </div>
+
+        <div class="flex-1 overflow-y-auto px-8 pb-32">
+          <div class="flex justify-between items-start mb-6">
+            <!-- شكل الأيقونة المتحركة في بطاقة السحب تفاعلياً مع الفئة -->
+            <div id="drawer-icon-container" class="w-20 h-20 rounded-[28px] flex items-center justify-center text-white shadow-xl rotate-3 transition-transform">
+              <i id="drawer-icon" data-lucide="star" class="w-10 h-10"></i>
+            </div>
+            <button onclick="closeDrawer()" class="w-10 h-10 bg-slate-100 hover:bg-slate-200 rounded-full flex items-center justify-center text-slate-500 transition-colors">
+              <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+          </div>
+
+          <div class="mb-6">
+            <div class="flex items-center gap-2 mb-2">
+              <span id="drawer-category" class="px-3 py-1 bg-blue-50 text-blue-600 text-[10px] font-black rounded-full uppercase tracking-wider">
+                فئة الخدمة
+              </span>
+            </div>
+            <h2 id="drawer-title" class="text-2xl font-black text-slate-900 leading-tight mb-4">عنوان تفصيلي</h2>
+            <div class="bg-slate-50 p-6 rounded-[32px] border border-slate-100">
+              <p id="drawer-desc" class="text-slate-600 leading-relaxed text-sm whitespace-pre-line font-medium">الوصف الكامل...</p>
+            </div>
+          </div>
+
+          <!-- شارات الجودة والثقة والسرعة -->
+          <div class="grid grid-cols-2 gap-4 mb-4">
+            <div class="bg-emerald-50 p-4 rounded-3xl border border-emerald-100 flex items-center gap-3">
+              <div class="w-10 h-10 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-600 shrink-0">
+                <i data-lucide="zap" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="block text-[10px] text-emerald-600 font-bold uppercase leading-none mb-1">السرعة</span>
+                <span class="text-xs font-bold text-slate-700">تفعيل فوري</span>
+              </div>
+            </div>
+            <div class="bg-blue-50 p-4 rounded-3xl border border-blue-100 flex items-center gap-3">
+              <div class="w-10 h-10 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-600 shrink-0">
+                <i data-lucide="shield-check" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="block text-[10px] text-blue-600 font-bold uppercase leading-none mb-1">الضومة</span>
+                <span class="text-xs font-bold text-slate-700">موثوق وآمن</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- أزرار الإجراءات التفاعلية الملتصقة بأسفل النافذة -->
+        <div class="absolute bottom-0 left-0 right-0 p-6 bg-white border-t border-slate-100 flex items-center gap-4">
+          <button id="drawer-btn-details" class="hidden flex-1 py-4 px-4 bg-slate-100 text-slate-700 font-bold rounded-2xl flex items-center justify-center gap-2 hover:bg-slate-200 transition-all active:scale-95">
+            <i data-lucide="external-link" class="w-5 h-5"></i>
+            <span>التفاصيل</span>
+          </button>
+          <button id="drawer-btn-order" class="flex-[2] py-4 px-4 bg-blue-600 text-white font-bold rounded-2xl shadow-xl shadow-blue-200 flex items-center justify-center gap-2 hover:bg-blue-700 transition-all active:scale-95">
+            <i data-lucide="send" class="w-5 h-5"></i>
+            <span>اطلب الخدمة الآن</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- الجزء البرمجي الذكي للتفاعلات الفورية -->
+    <script>
+      // مصفوفة البيانات الأساسية الفورية
+      const SERVICES = [
+        {
+          id: 'tg-premium',
+          title: 'تفعيل تيليجرام المميز (Premium) ⭐',
+          description: 'احصل على ميزات حصرية: سرعة مضاعفة في التحميل، رفع ملفات بحجم أكبر، تحويل الصوت إلى نص، وشارة التوثيق بجانب اسمك.',
+          icon: 'star',
+          category: 'telegram',
+          orderLink: 'https://t.me/B_B_A_W',
+          detailsLink: 'https://t.me/H_E_D_F/5237',
+          color: 'bg-blue-500'
+        },
+        {
+          id: 'tg-stars',
+          title: 'شحن نجوم تيليجرام (Stars) 🌟',
+          description: 'العملة الافتراضية الجديدة داخل تيليجرام؛ استخدمها لدعم صناع المحتوى، شراء المنتجات الرقمية، وإرسال الهدايا المميزة.',
+          icon: 'zap',
+          category: 'telegram',
+          orderLink: 'https://t.me/B_B_A_W',
+          detailsLink: 'https://t.me/H_E_D_F/3108',
+          color: 'bg-yellow-500'
+        },
+        {
+          id: 'tg-boosts',
+          title: 'تعزيز القنوات والمجموعات (Boosts) 👑',
+          description: 'ارفع مستوى قناتك لتتمكن من نشر "الستوري"، تخصيص خلفية القناة، واستخدام الرموز التعبيرية المخصصة.',
+          icon: 'sparkles',
+          category: 'telegram',
+          orderLink: 'https://t.me/B_B_A_W',
+          detailsLink: 'https://t.me/H_E_D_F/5214',
+          color: 'bg-purple-500'
+        },
+        {
+          id: 'tg-profits',
+          title: 'سحب أرباح القنوات وتحويل العملات 📱',
+          description: 'حول أرباح قناتك من عملة TON أو النجوم إلى كاش أو USDT بعمولة رمزية جداً وبأقصى درجات الموثوقية والأمان.',
+          icon: 'wallet',
+          category: 'telegram',
+          orderLink: 'https://t.me/B_B_A_W',
+          color: 'bg-emerald-500'
+        },
+        {
+          id: 'tg-ton',
+          title: 'شحن عملة TON 💎',
+          description: 'توفير عملة TON لمحفظتك الشخصية لاستخدامها في تداول اليوزرات أو الاستثمار.',
+          icon: 'coins',
+          category: 'telegram',
+          orderLink: 'https://t.me/B_B_A_W',
+          color: 'bg-sky-500'
+        },
+        {
+          id: 'ai-chatgpt',
+          title: 'ChatGPT Plus / Business 🤖',
+          description: 'الوصول إلى أحدث نماذج الذكاء الاصطناعي (GPT-4o) وتحليل البيانات المتقدم بأسعار مخفضة للغاية ومناسبة للجميع.',
+          icon: 'bot',
+          category: 'ai',
+          orderLink: 'https://t.me/B_B_A_W',
+          detailsLink: 'https://t.me/H_E_D_F/5212',
+          color: 'bg-teal-600'
+        },
+        {
+          id: 'ai-gemini',
+          title: 'Gemini Premium ❤️',
+          description: 'تجربة النسخة الأقوى من ذكاء جوجل الاصطناعي مع مميزات متقدمة وسعة تخزين سحابية قصوى لتنظيم أعمالك ومهامك اليومية.',
+          icon: 'sparkles',
+          category: 'ai',
+          orderLink: 'https://t.me/B_B_A_W',
+          detailsLink: 'https://t.me/H_E_D_F/5210',
+          color: 'bg-indigo-500'
+        },
+        {
+          id: 'ai-canva',
+          title: 'Canva Pro (الاحترافي) 🎨',
+          description: 'افتح جميع أدوات التصميم، الصور، والقوالب المدفوعة لتصمم باحترافية وتصنع وتنتج واجهات ومحتوى خلاب بقوالب ممتازة وجاهزة.',
+          icon: 'palette',
+          category: 'ai',
+          orderLink: 'https://t.me/B_B_A_W',
+          detailsLink: 'https://t.me/H_E_D_F/5213',
+          color: 'bg-pink-500'
+        },
+        {
+          id: 'ai-duolingo',
+          title: 'دولينجو بلس (Duolingo) 👋',
+          description: 'تعلم اللغات بدون إعلانات وبقلوب غير محدودة لضمان استمرارية التعلم والتقدم المستمر السريع والممتع.',
+          icon: 'languages',
+          category: 'ai',
+          orderLink: 'https://t.me/B_B_A_W',
+          detailsLink: 'https://t.me/H_E_D_F/5214',
+          color: 'bg-green-500'
+        },
+        {
+          id: 'fin-crypto',
+          title: 'تداول العملات الرقمية وتحويل الأموال ₿',
+          description: 'بيع وشراء العملات الرقمية (USDT وغيرها) مع توفير خدمة التحويلات الدولية وتصفية الحسابات والعمولات البسيطة.',
+          icon: 'bitcoin',
+          category: 'financial',
+          orderLink: 'https://t.me/B_B_A_W',
+          color: 'bg-orange-500'
+        },
+        {
+          id: 'fin-numbers',
+          title: 'بيع أرقام تيليجرام وواتساب 📲',
+          description: 'توفير أرقام مخصصة لمختلف الدول لتفعيل الحسابات وحماية خصوصيتك وهويتك وبياناتك الرقمية الحساسة.',
+          icon: 'smartphone',
+          category: 'financial',
+          orderLink: 'https://t.me/B_B_A_W',
+          color: 'bg-blue-600'
+        },
+        {
+          id: 'fin-kyc',
+          title: 'توثيق الحسابات والمحافظ 🛡️',
+          description: 'مساعدة تقنية في إجراءات توثيق الهوية (KYC) للتطبيقات الرقمية والمحافظ الإلكترونية وتذليل كافة العقبات الرسمية والتقنية.',
+          icon: 'shield-check',
+          category: 'financial',
+          orderLink: 'https://t.me/B_B_A_W',
+          color: 'bg-slate-700'
+        },
+        {
+          id: 'fin-student',
+          title: 'الخدمات الطلابية والأكاديمية 🎓',
+          description: 'مساعدة في إعداد الأبحاث والتقارير بمختلف المجالات، التصاميم التعليمية، وتوفير المراجع والمصادر اللازمة بشكل أكاديمي ممتاز.',
+          icon: 'graduation-cap',
+          category: 'financial',
+          orderLink: 'https://t.me/B_B_A_W',
+          color: 'bg-indigo-600'
+        }
+      ];
+
+      let activeCategory = 'all';
+      let currentQuery = '';
+
+      // نقطة الانطلاق الفورية عند تحميل المستند الكامل بالمتصفح
+      document.addEventListener('DOMContentLoaded', () => {
+        renderServices();
+        lucide.createIcons();
+      });
+
+      // وظيفة تصفية وعرض المعروضات والمنتجات على الشاشة مع مؤثرات حياكة سلسة
+      function renderServices() {
+        const container = document.getElementById('services-container');
+        const noResults = document.getElementById('no-results');
+        container.innerHTML = '';
+
+        const filtered = SERVICES.filter(service => {
+          const matchesCategory = activeCategory === 'all' || service.category === activeCategory;
+          const matchesSearch = service.title.toLowerCase().includes(currentQuery.toLowerCase()) || 
+                                service.description.toLowerCase().includes(currentQuery.toLowerCase());
+          return matchesCategory && matchesSearch;
+        });
+
+        document.getElementById('service-count').textContent = `${filtered.length} خدمة`;
+
+        if (filtered.length === 0) {
+          noResults.classList.remove('hidden');
+        } else {
+          noResults.classList.add('hidden');
+          
+          filtered.forEach((service, index) => {
+            const card = document.createElement('div');
+            card.className = "bg-white p-4 rounded-3xl shadow-sm border border-slate-100 flex items-center gap-4 cursor-pointer hover:shadow-md hover:border-blue-100 transition-all group scale-100 active:scale-95 duration-150 animate-fade-in";
+            card.style.animationDelay = `${index * 40}ms`;
+            card.setAttribute('onclick', `openDrawer('${service.id}')`);
+            
+            card.innerHTML = `
+              <div class="w-14 h-14 ${service.color} rounded-2xl flex items-center justify-center text-white shadow-inner shrink-0 group-hover:scale-110 transition-transform">
+                <i data-lucide="${service.icon}" class="w-7 h-7"></i>
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="font-bold text-slate-800 text-sm md:text-base truncate leading-tight mb-1">${service.title}</h3>
+                <p class="text-xs text-slate-500 line-clamp-1 leading-normal">${service.description}</p>
+              </div>
+              <div class="w-8 h-8 bg-slate-50 rounded-full flex items-center justify-center text-slate-400 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
+                <i data-lucide="chevron-left" class="w-5 h-5"></i>
+              </div>
+            `;
+            container.appendChild(card);
+          });
+          
+          // تحديث وتثبيت الأيقونات المتطابقة لحظياً
+          lucide.createIcons();
+        }
+      }
+
+      // مسك مدخل البحث وقص الأطراف الزائدة وتحديث الواجهة
+      function handleSearch(val) {
+        currentQuery = val.trim();
+        renderServices();
+      }
+
+      // معالج اختيار وتبديل فئات الخدمات بالكامل
+      function filterCategory(catId) {
+        activeCategory = catId;
+        
+        const btnAll = document.getElementById('cat-all');
+        const btnTg = document.getElementById('cat-telegram');
+        const btnAi = document.getElementById('cat-ai');
+        const btnFin = document.getElementById('cat-financial');
+
+        const buttons = [btnAll, btnTg, btnAi, btnFin];
+        buttons.forEach(btn => {
+          if (btn) {
+            btn.className = "flex-1 min-w-[85px] py-3 px-2 rounded-2xl flex flex-col items-center gap-1.5 transition-all bg-transparent text-slate-500 hover:bg-slate-50";
+          }
+        });
+
+        const selectedBtn = document.getElementById(`cat-${catId}`);
+        if (selectedBtn) {
+          selectedBtn.className = "flex-1 min-w-[85px] py-3 px-2 rounded-2xl flex flex-col items-center gap-1.5 transition-all bg-blue-600 text-white shadow-lg shadow-blue-200";
+        }
+
+        renderServices();
+      }
+
+      // فتح بطاقة تفاصيل الخدمة المنزلقة من الأسفل (محفظة جيب كلاس)
+      function openDrawer(serviceId) {
+        const service = SERVICES.find(s => s.id === serviceId);
+        if (!service) return;
+
+        const iconContainer = document.getElementById('drawer-icon-container');
+        iconContainer.className = `w-20 h-20 ${service.color} rounded-[28px] flex items-center justify-center text-white shadow-xl rotate-3 transition-transform`;
+        
+        const iconElement = document.getElementById('drawer-icon');
+        iconElement.setAttribute('data-lucide', service.icon);
+
+        const categoryBadge = document.getElementById('drawer-category');
+        let categoryName = "عام";
+        if (service.category === 'telegram') categoryName = "خدمات تيليجرام";
+        if (service.category === 'ai') categoryName = "ذكاء اصطناعي وتصميم";
+        if (service.category === 'financial') categoryName = "خدمات عامة ومالية";
+        categoryBadge.textContent = categoryName;
+
+        document.getElementById('drawer-title').textContent = service.title;
+        document.getElementById('drawer-desc').textContent = service.description;
+
+        const detailsBtn = document.getElementById('drawer-btn-details');
+        if (service.detailsLink) {
+          detailsBtn.classList.remove('hidden');
+          detailsBtn.setAttribute('onclick', `window.open('${service.detailsLink}', '_blank')`);
+        } else {
+          detailsBtn.classList.add('hidden');
+        }
+
+        const orderBtn = document.getElementById('drawer-btn-order');
+        if (service.orderLink) {
+          orderBtn.setAttribute('onclick', `window.open('${service.orderLink}', '_blank')`);
+          orderBtn.innerHTML = `<i data-lucide="send" class="w-5 h-5"></i><span>اطلب الخدمة الآن</span>`;
+        }
+
+        const overlay = document.getElementById('drawer-overlay');
+        const drawer = document.getElementById('drawer');
+
+        overlay.classList.remove('hidden');
+        drawer.classList.remove('hidden');
+        
+        setTimeout(() => {
+          drawer.classList.remove('translate-y-full');
+          drawer.classList.add('translate-y-0');
+        }, 10);
+
+        lucide.createIcons();
+      }
+
+      // إغلاق بطاقة المحفظة بسلاسة بالغة لإرجاعها إلى الجزء السفلي غير المرئي
+      function closeDrawer() {
+        const overlay = document.getElementById('drawer-overlay');
+        const drawer = document.getElementById('drawer');
+
+        drawer.classList.remove('translate-y-0');
+        drawer.classList.add('translate-y-full');
+        overlay.classList.add('hidden');
+
+        setTimeout(() => {
+          drawer.classList.add('hidden');
+        }, 300);
+      }
+    </script>
+  </body>
+</html>
